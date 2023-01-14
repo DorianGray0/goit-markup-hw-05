@@ -8,6 +8,11 @@
   --color-fon-img: #e7e9fc;
   --color-subtle-text: #8e8f99;
   --color-success: #31d0aa;
+  --linear-gradient-hero: linear-gradient(rgba(46 47 66 / 0.7), rgba(46 47 66 / 0.7));
+  --box-shadow-first: 0px 1px 6px rgba(46 47 66 / 0.08), 0px 1px 1px rgba(46 47 66 / 0.16),
+    0px 2px 1px rgba(46 47 66 / 0.08);
+  --box-shadow-second: 0px 3px 1px rgba(0 0 0 / 0.1), 0px 2px 1px rgba(0 0 0 / 0.08),
+    0px 2px 2px rgba(0 0 0 / 0.12);
 }
 
 body {
@@ -133,13 +138,14 @@ button {
 } */
 
 .navigation-link {
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-headings);
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: block;
 }
 
 .contacts-mail-wrap {
@@ -158,13 +164,14 @@ button {
 }
 
 .contacts-link {
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: var(--color-text);
   display: flex;
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
+
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
 }
 
 .link:focus,
@@ -186,31 +193,36 @@ button {
 .hero {
   max-width: 1440px;
   min-height: 600px;
-  text-align: center;
   padding-top: 188px;
   padding-bottom: 188px;
   margin: 0 auto;
+
+  text-align: center;
+
   background-color: var(--color-headings);
-  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-    url(../images/bgi-hero.jpg);
+  background-image: var(--linear-gradient-hero), url(../images/bgi-hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .hero-title {
+  max-width: 496px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+
   font-size: 56px;
   line-height: 1.07;
   text-align: center;
   letter-spacing: 0.02em;
   color: var(--first-background-color);
-  max-width: 496px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 48px;
 }
 
 .hero-button {
+  min-width: 169px;
+  padding: 16px 32px;
+
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -218,8 +230,7 @@ button {
   letter-spacing: 0.04em;
   color: var(--first-background-color);
   background-color: var(--color-accent);
-  min-width: 169px;
-  padding: 16px 32px;
+
   border-color: transparent;
   border-radius: 4px;
   outline: transparent;
@@ -228,7 +239,7 @@ button {
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--color-secondary-accent);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px rgba(0 0 0 / 0.15);
 }
 
 /*--------------------------------section 2 FUNCIOINAL */
@@ -248,13 +259,14 @@ button {
 }
 
 .functional-thumb {
-  height: 112px;
-  border-radius: 5px;
-  margin-bottom: 8px;
-  background-color: var(--second-background-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 112px;
+  margin-bottom: 8px;
+
+  border-radius: 5px;
+  background-color: var(--second-background-color);
 }
 
 /* .functional-icon {
@@ -262,11 +274,12 @@ button {
 } */
 
 .functional-title {
+  margin-bottom: 8px;
+
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--color-headings);
-  margin-bottom: 8px;
 }
 
 .functional-text {
@@ -282,13 +295,14 @@ button {
 }
 
 .proposition-title {
+  margin-bottom: 72px;
+
   font-size: 36px;
   line-height: 1.11;
-  text-align: center;
   letter-spacing: 0.02em;
+  text-align: center;
   text-transform: capitalize;
   color: var(--color-headings);
-  margin-bottom: 72px;
 }
 
 .proposition-list {
@@ -303,19 +317,20 @@ button {
 /*  ---------------------------------section 4 TEAM */
 
 .team {
-  background-color: var(--second-background-color);
   padding-top: 120px;
   padding-bottom: 120px;
+  background-color: var(--second-background-color);
 }
 
 .team-title {
+  margin-bottom: 72px;
+
   font-size: 36px;
   line-height: 1.11;
-  text-align: center;
   letter-spacing: 0.02em;
+  text-align: center;
   text-transform: capitalize;
   color: var(--color-headings);
-  margin-bottom: 72px;
 }
 
 .team-list {
@@ -325,31 +340,33 @@ button {
 
 .team-item {
   flex-basis: calc((100% - 72px) / 4);
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 2px 1px rgba(46, 47, 66, 0.08);
+  box-shadow: var(--box-shadow-first);
   border-radius: 0px 0px 4px 4px;
 }
 
 .team-wrap {
+  padding: 32px 16px;
+
   letter-spacing: 0.02em;
   background-color: var(--first-background-color);
-  padding: 32px 16px;
   border-radius: 0px 0px 4px 4px;
 }
 
 .team-subject {
+  margin-bottom: 8px;
+
   font-size: 20px;
   line-height: 1.2;
   color: var(--color-headings);
-  margin-bottom: 8px;
   text-align: center;
 }
 
 .team-text {
+  margin-bottom: 8px;
+
   line-height: 1.5;
   color: var(--color-text);
   text-align: center;
-  margin-bottom: 8px;
 }
 
 .team-soc-list {
@@ -368,10 +385,11 @@ button {
   justify-content: center;
   width: 100%;
   height: 100%;
+
   border-radius: 50%;
+  color: var(--second-background-color);
   background-color: var(--color-accent);
   outline: transparent;
-  color: var(--second-background-color);
 }
 
 .team-soc-link:hover,
@@ -392,13 +410,14 @@ button {
 }
 
 .customers-title {
+  margin-bottom: 72px;
+
   font-size: 36px;
   line-height: 1.11em;
-  text-align: center;
   letter-spacing: 0.02em;
+  text-align: center;
   text-transform: capitalize;
   color: var(--color-headings);
-  margin-bottom: 72px;
 }
 
 .customers-list {
@@ -418,10 +437,11 @@ button {
   justify-content: center;
   width: 100%;
   height: 100%;
+
+  color: var(--color-subtle-text);
   border: 1px solid var(--color-subtle-text);
   border-radius: 5px;
   outline: transparent;
-  color: var(--color-subtle-text);
 }
 
 .customers-link:hover,
@@ -437,9 +457,9 @@ button {
 /*  -----------------------------------------------------FOOTER */
 
 .footer {
-  background-color: var(--color-headings);
   padding-top: 100px;
   padding-bottom: 100px;
+  background-color: var(--color-headings);
 }
 
 .footer > .container {
@@ -454,10 +474,11 @@ button {
 }
 
 .footer-text {
+  width: 264px;
+
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-fon-img);
-  width: 264px;
 }
 
 .footer-soc-wrap {
@@ -465,12 +486,13 @@ button {
 }
 
 .footer-title {
+  margin-bottom: 16px;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5em;
   letter-spacing: 0.02em;
   color: var(--first-background-color);
-  margin-bottom: 16px;
 }
 
 .footer-soc-list {
@@ -490,10 +512,11 @@ button {
   justify-content: center;
   width: 100%;
   height: 100%;
+  color: var(--second-background-color);
+
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   outline: transparent;
-  color: var(--second-background-color);
 }
 
 .footer-soc-link:hover,
@@ -515,10 +538,11 @@ button {
 }
 
 .services-list {
+  margin-bottom: 72px;
+
   display: flex;
   gap: 24px;
   justify-content: center;
-  margin-bottom: 72px;
 }
 
 /* .services-item {
@@ -526,20 +550,21 @@ button {
 
 .services-button:hover,
 .services-button:focus {
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--box-shadow-second);
   border-radius: 4px;
 }
 
 .services-button {
+  padding: 12px 24px;
+
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.04em;
   color: var(--color-accent);
+
   background-color: var(--second-background-color);
-  padding: 12px 24px;
   border: 1px solid var(--color-fon-img);
   border-radius: 4px;
   outline: transparent;
@@ -573,8 +598,7 @@ button {
 
 .option-link:hover,
 .option-link:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 2px 1px rgba(46, 47, 66, 0.08);
+  box-shadow: var(--box-shadow-first);
 }
 
 .option-wrap {
@@ -585,13 +609,14 @@ button {
 }
 
 .option-subject {
+  margin-bottom: 8px;
+
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--color-headings);
   text-align: start;
-  margin-bottom: 8px;
 }
 
 .option-text {
