@@ -70,7 +70,7 @@
       <!-- SECTION 1  HERO -->
       <section class="hero">
         <h1 class="hero-title">Effective Solutions for Your Business</h1>
-        <button class="hero-button" type="button">Order Service</button>
+        <button data-modal-open class="hero-button" type="button">Order Service</button>
       </section>
 
       <!-- SECTION 2 FUNCTIONAL -->
@@ -417,5 +417,15 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-close" data-modal-close>
+          <svg class="icon-modal" width="8px" height="8px">
+            <use href="./images/icons.svg#icon-close-black"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
