@@ -16,6 +16,7 @@
   --modal-bgc: #fcfcfc;
   --modal-box-shadow: 0px 1px 1px rgba(0 0 0 / 0.14), 0px 1px 3px rgba(0 0 0 / 0.12),
     0px 2px 1px rgba(0 0 0 / 0.2);
+  --cubic-bezier-main: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -77,19 +78,33 @@ button {
   padding-left: 15px;
 }
 
-/*-------.LINK */
-/* .link:focus,
+.link:focus,
 .link:hover {
   color: var(--color-accent);
-} */
+}
 
-/* -------.BUTTON */
-/* .button:hover,
+.link {
+  transition: color 250ms var(--cubic-bezier-main);
+}
+
+.button:hover,
 .button:focus {
   color: var(--first-background-color);
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary-accent);
   border-color: var(--color-accent);
-} */
+}
+
+.logo {
+  display: block;
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
 
 /* ----------------------------------HEADER */
 
@@ -108,19 +123,23 @@ button {
 
 /* ---------------LOGO */
 
-.header-navigation > .logo {
-  padding-top: 24px;
-  padding-bottom: 24px;
+.wrapper-logo > .logo {
+  transition: color 250ms var(--cubic-bezier-main);
 }
 
-.logo {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.33;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+.wrapper-logo:hover .logo,
+.wrapper-logo:focus .logo {
+  color: #000;
+}
+
+.wrapper-logo:hover span,
+.wrapper-logo:focus span {
   color: var(--color-accent);
+}
+
+.header-logo {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .header-studio {
@@ -141,6 +160,8 @@ button {
 } */
 
 .navigation-link {
+  position: relative;
+
   display: block;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -149,6 +170,19 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-headings);
+}
+
+.navigation-link.current::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: var(--color-secondary-accent);
 }
 
 .contacts-mail-wrap {
@@ -161,25 +195,20 @@ button {
   gap: 40px;
 }
 
-.contacts-item {
-  width: 181px;
-  height: 24px;
-}
+/* .contacts-item {
+} */
 
 .contacts-link {
   display: flex;
   gap: 8px;
   align-items: flex-start;
   justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
 
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--color-text);
-}
-
-.link:focus,
-.link:hover {
-  color: var(--color-accent);
 }
 
 .contacts-link:focus .header-contacts-icon,
@@ -189,6 +218,7 @@ button {
 
 .header-contacts-icon {
   fill: var(--color-text);
+  transition: fill 250ms var(--cubic-bezier-main);
 }
 
 /* --------------------------------section 1 HERO */
@@ -237,6 +267,9 @@ button {
   border-color: transparent;
   border-radius: 4px;
   outline: transparent;
+
+  transition: background-color 250ms var(--cubic-bezier-main),
+    box-shadow 250ms var(--cubic-bezier-main);
 }
 
 .hero-button:hover,
@@ -393,6 +426,8 @@ button {
   color: var(--second-background-color);
   background-color: var(--color-accent);
   outline: transparent;
+
+  transition: background-color 250ms var(--cubic-bezier-main);
 }
 
 .team-soc-link:hover,
@@ -445,6 +480,8 @@ button {
   border: 1px solid var(--color-subtle-text);
   border-radius: 5px;
   outline: transparent;
+
+  transition: border-color 250ms var(--cubic-bezier-main), color 250ms var(--cubic-bezier-main);
 }
 
 .customers-link:hover,
@@ -517,9 +554,11 @@ button {
   height: 100%;
   color: var(--second-background-color);
 
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255 255 255 / 0.1);
   border-radius: 50%;
   outline: transparent;
+
+  transition: background-color 250ms var(--cubic-bezier-main);
 }
 
 .footer-soc-link:hover,
@@ -551,12 +590,6 @@ button {
 /* .services-item {
 } */
 
-.services-button:hover,
-.services-button:focus {
-  box-shadow: var(--box-shadow-second);
-  border-radius: 4px;
-}
-
 .services-button {
   padding: 12px 24px;
 
@@ -571,13 +604,15 @@ button {
   border: 1px solid var(--color-fon-img);
   border-radius: 4px;
   outline: transparent;
+
+  transition: box-shadow 250ms var(--cubic-bezier-main),
+    background-color 250ms var(--cubic-bezier-main), border-color 250ms var(--cubic-bezier-main);
 }
 
-.button:hover,
-.button:focus {
-  color: var(--first-background-color);
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+.services-button:hover,
+.services-button:focus {
+  box-shadow: var(--box-shadow-second);
+  border-color: var(--color-secondary-accent);
 }
 
 /* -------------OPTIONS (CARDS) */
@@ -595,8 +630,8 @@ button {
 
 .option-link {
   display: block;
-  width: 100%;
-  height: 100%;
+
+  transition: box-shadow 250ms var(--cubic-bezier-main);
 }
 
 .option-link:hover,
@@ -630,7 +665,7 @@ button {
   text-align: start;
 }
 
-/* ---------BACKDROP/MODAL */
+/* ---------------------------------------BACKDROP/MODAL */
 
 .backdrop {
   position: fixed;
