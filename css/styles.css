@@ -704,7 +704,7 @@ button {
 
   background: rgba(46 47 66 / 0.4);
 
-  transition: opacity 250ms var(--cubic-bezier-main), visibility 250ms var(--cubic-bezier-main);
+  transition: opacity 500ms var(--cubic-bezier-main), visibility 500ms var(--cubic-bezier-main);
 }
 
 .modal {
@@ -720,7 +720,7 @@ button {
   box-shadow: var(--modal-box-shadow);
   border-radius: 4px;
 
-  transition: transform 1500ms var(--cubic-bezier-main);
+  transition: transform 450ms var(--cubic-bezier-main);
 }
 
 .backdrop.is-hidden .modal {
