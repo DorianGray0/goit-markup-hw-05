@@ -451,7 +451,7 @@ button {
   margin-bottom: 72px;
 
   font-size: 36px;
-  line-height: 1.11em;
+  line-height: 1.11;
   letter-spacing: 0.02em;
   text-align: center;
   text-transform: capitalize;
@@ -530,7 +530,7 @@ button {
 
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--first-background-color);
 }
@@ -631,12 +631,40 @@ button {
 .option-link {
   display: block;
 
-  transition: box-shadow 250ms var(--cubic-bezier-main);
+  outline: transparent;
 }
 
 .option-link:hover,
 .option-link:focus {
   box-shadow: var(--box-shadow-first);
+}
+
+.option-link:hover .thumb-option-text,
+.option-link:focus .thumb-option-text {
+  transform: translateY(0);
+}
+
+.thumb-option {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-option-text {
+  position: absolute;
+  top: 0;
+
+  height: 100%;
+  padding: 40px 32px;
+
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--second-background-color);
+
+  background-color: var(--color-accent);
+
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform 250ms var(--cubic-bezier-main);
 }
 
 .option-wrap {
@@ -674,14 +702,16 @@ button {
   width: 100%;
   height: 100%;
 
-  background-color: rgba(46, 47, 66, 0.529);
+  background: rgba(46 47 66 / 0.4);
+
+  transition: opacity 250ms var(--cubic-bezier-main), visibility 250ms var(--cubic-bezier-main);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 408px;
   min-height: 576px;
@@ -689,6 +719,12 @@ button {
   background-color: var(--modal-bgc);
   box-shadow: var(--modal-box-shadow);
   border-radius: 4px;
+
+  transition: transform 1500ms var(--cubic-bezier-main);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0) rotate(-360deg);
 }
 
 .modal-close {
