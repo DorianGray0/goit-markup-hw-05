@@ -711,11 +711,11 @@ button {
   box-shadow: var(--modal-box-shadow);
   border-radius: 4px;
 
-  transition: transform 450ms var(--cubic-bezier-main);
+  transition: transform 350ms var(--cubic-bezier-main);
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0) rotate(-360deg);
+  transform: translate(-50%, -150%);
 }
 
 .modal-close {
@@ -733,6 +733,12 @@ button {
   border-radius: 50%;
   border: none;
   background-color: var(--color-fon-img);
+
+  transition: transform 350ms 350ms var(--cubic-bezier-main);
+}
+
+.backdrop.is-hidden .modal-close {
+  transform: rotate(-360deg) scale(0);
 }
 
 /* .icon-modal {
